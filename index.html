@@ -1,71 +1,621 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartIPLs - Laboratorios de Física con Smartphones</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; }
-        header { background: #1a2a6c; color: white; padding: 2rem; text-align: center; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 2rem 0; }
-        .hero { background: #f4f4f4; padding: 3rem; text-align: center; border-bottom: 5px solid #1a2a6c; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .highlight { color: #1a2a6c; font-weight: bold; }
-        footer { background: #1a2a6c; color: white; text-align: center; padding: 1rem; position: relative; bottom: 0; width: 100%; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smartphone Physics Labs</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+line-height:1.6;
+background:#f5f7fb;
+color:#333;
+}
+
+nav{
+position:sticky;
+top:0;
+background:#0f1c4d;
+padding:15px;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#f4c430;
+}
+
+header{
+
+height:100vh;
+
+background:
+linear-gradient(
+135deg,
+rgba(15,28,77,.95),
+rgba(26,42,108,.9)
+);
+
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
+}
+
+.hero-content{
+
+max-width:800px;
+
+}
+
+.hero-content h1{
+
+font-size:4rem;
+margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+font-size:1.3rem;
+margin-bottom:30px;
+
+}
+
+.button{
+
+display:inline-block;
+padding:14px 30px;
+
+background:#f4c430;
+
+color:black;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+.button:hover{
+
+transform:scale(1.05);
+
+transition:.3s;
+
+}
+
+.container{
+
+width:85%;
+margin:auto;
+padding:60px 0;
+
+}
+
+section{
+
+margin-bottom:70px;
+
+}
+
+.highlight{
+
+color:#0f1c4d;
+margin-bottom:25px;
+font-size:2rem;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.1);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+color:#0f1c4d;
+
+}
+
+.card i{
+
+font-size:2rem;
+
+margin-bottom:15px;
+
+color:#f4c430;
+
+}
+
+ul{
+
+padding-left:20px;
+
+}
+
+footer{
+
+background:#0f1c4d;
+
+color:white;
+
+padding:40px;
+
+text-align:center;
+
+}
+
+</style>
+
 </head>
+
 <body>
 
+<nav>
+
+<ul>
+
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#state">State of Art</a></li>
+<li><a href="#methodology">Methodology</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#team">Team</a></li>
+
+</ul>
+
+</nav>
+
+
 <header>
-    <h1>SmartIPLs</h1>
-    <p>Innovación • Accesibilidad • Educación</p>
-</header>
 
-<section class="hero">
-    <h2>Democratizando la Educación en Física</h2>
-    <p>Laboratorios de física integrados en smartphones para contextos de bajos recursos.</p>
-</section>
+<div class="hero-content">
 
-<div class="container">
-    <section id="about">
-        <h2 class="highlight">Nuestra Misión</h2>
-        <p>Integrar los sensores de los smartphones en experiencias de laboratorio rigurosas para cerrar la brecha digital en la educación STEM.</p>
-    </section>
+<h1>Smartphone Physics Labs</h1>
 
-    <section id="methodology">
-        <h2 class="highlight">Metodología SmartIPL</h2>
-        <div class="grid">
-            <div class="card">
-                <h3><i class="fas fa-microchip"></i> Sensores Integrados</h3>
-                <p>Uso de acelerómetros, giroscopios y magnetómetros para mediciones científicas precisas.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-book"></i> Modelo FRAME</h3>
-                <p>Evaluación de la viabilidad técnica considerando la autonomía del estudiante y el contexto social.</p>
-            </div>
-            <div class="card">
-                <h3><i class="fas fa-chart-line"></i> Resultados</h3>
-                <p>Mejora en los resultados de aprendizaje: de un 60.0% en pre-test a un 81.82% en post-test.</p>
-            </div>
-        </div>
-    </section>
+<p>
 
-    <section id="team">
-        <h2 class="highlight">Equipo de Investigación</h2>
-        <ul>
-            <li><strong>Gersón Cabrera:</strong> Coordinador General </li>
-            <li><strong>Alex Morales:</strong> Coordinador de Tecnología </li>
-            <li><strong>Ayrton Jarrín:</strong> CEO del Proyecto </li>
-        </ul>
-        <p><em>Afiliación: School of Physical Sciences and Nanotechnology, Yachay Tech University.</em></p>
-    </section>
+Innovation • Accessibility • Education
+
+</p>
+
+<p>
+
+Transforming undergraduate physics education through smartphone-based laboratories.
+
+</p>
+
+<a href="#intro"
+class="button">
+
+Explore Research
+
+</a>
+
 </div>
 
+</header>
+
+
+<div class="container">
+
+
+<section id="intro">
+
+<h2 class="highlight">
+
+Introduction
+
+</h2>
+
+<p>
+
+Smartphones have emerged as accessible and scalable tools for experimental physics education. Their integrated sensors allow the implementation of laboratory experiences in low-resource contexts while promoting educational equity.
+
+</p>
+
+</section>
+
+
+
+<section id="objectives">
+
+<h2 class="highlight">
+
+Objectives & Research Questions
+
+</h2>
+
+<div class="card">
+
+<h3>Main Objective</h3>
+
+<p>
+
+Analyze the pedagogical and technical conditions necessary to implement smartphone-based physics laboratories in low-resource environments.
+
+</p>
+
+<br>
+
+<h3>Research Questions</h3>
+
+<ul>
+
+<li>How feasible are low-end smartphones?</li>
+
+<li>Which methodologies fit Ecuadorian contexts?</li>
+
+<li>Can SmartIPLs replace traditional laboratories?</li>
+
+<li>What technical limitations affect devices?</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section id="state">
+
+<h2 class="highlight">
+
+State of Art
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<i class="fas fa-school"></i>
+
+<h3>Limited Infrastructure</h3>
+
+<p>
+
+Limited laboratory access constrains STEM learning.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-mobile-alt"></i>
+
+<h3>Technical Feasibility</h3>
+
+<p>
+
+Smartphone sensors provide measurements comparable to standard instruments.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-graduation-cap"></i>
+
+<h3>Pedagogical Impact</h3>
+
+<p>
+
+Improves engagement, autonomy and higher-order thinking skills.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-users"></i>
+
+<h3>Implementation</h3>
+
+<p>
+
+Teacher training and institutional support remain essential.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="methodology">
+
+<h2 class="highlight">
+
+Methodology
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<i class="fas fa-book"></i>
+
+<h3>Systematic Review</h3>
+
+<p>
+
+54 selected studies.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-project-diagram"></i>
+
+<h3>FRAME Model</h3>
+
+<p>
+
+Device + Learner + Social Context
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-filter"></i>
+
+<h3>PRISMA Approach</h3>
+
+<p>
+
+Identification, screening, eligibility and inclusion process.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="results">
+
+<h2 class="highlight">
+
+Results
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<i class="fas fa-microchip"></i>
+
+<h3>Sensor Classification</h3>
+
+<ul>
+
+<li>Accelerometer</li>
+<li>Gyroscope</li>
+<li>Microphone</li>
+<li>Magnetometer</li>
+<li>Light Sensor</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<i class="fas fa-chart-line"></i>
+
+<h3>Learning Outcomes</h3>
+
+<p>
+
+Student performance increased:
+
+<br><br>
+
+60.0 → 81.82
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="discussion">
+
+<h2 class="highlight">
+
+Discussion
+
+</h2>
+
+<p>
+
+The effectiveness of smartphone laboratories depends on technical capabilities, pedagogical implementation and institutional support.
+
+</p>
+
+</section>
+
+
+
+<section id="conclusions">
+
+<h2 class="highlight">
+
+Conclusions
+
+</h2>
+
+<ul>
+
+<li>SmartIPLs are technically viable.</li>
+
+<li>Support active learning.</li>
+
+<li>Reduce infrastructure barriers.</li>
+
+<li>Require standardized protocols.</li>
+
+</ul>
+
+</section>
+
+
+
+<section id="team">
+
+<h2 class="highlight">
+
+Research Team
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Gersón Cabrera</h3>
+
+<p>
+
+General Coordinator
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Alex Morales</h3>
+
+<p>
+
+Technology Coordinator
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Ayrton Dilan Jarrín</h3>
+
+<p>
+
+Research Coordinator
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
 <footer>
-    <p>&copy; 2026 SmartIPLs - Yachay Tech University. Contacto: gerson.cabrera@yachaytech.edu.ec </p>
+
+<p>
+
+School of Physical Sciences and Nanotechnology
+
+<br>
+
+Yachay Tech University
+
+<br><br>
+
+gerson.cabrera@yachaytech.edu.ec
+
+</p>
+
 </footer>
+
 
 </body>
 </html>
